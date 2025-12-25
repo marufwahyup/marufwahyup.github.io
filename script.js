@@ -29,3 +29,12 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".fade-in").forEach(section => {
     observer.observe(section);
 });
+
+// Animate floating buttons on page load
+window.addEventListener("load", () => {
+    const floating = document.querySelector(".floating-social");
+    if (floating) {
+        floating.style.opacity = "1";
+        floating.style.transform = "translateY(0)";
+    }
+});
