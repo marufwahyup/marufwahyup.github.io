@@ -1,36 +1,54 @@
 /* =====================
+   INDUSTRIAL GRAPHITE
    Design Tokens
 ===================== */
 :root {
-    --bg: #f8fafc;
+    --bg: #f9fafb;
+    /* Light industrial background */
     --surface: #ffffff;
-    --surface-alt: #f1f5f9;
-    --text: #0f172a;
-    --muted: #475569;
-    --border: #e2e8f0;
-    --primary: #2563eb;
-    --primary-soft: #dbeafe;
+    /* Cards / surfaces */
+    --surface-alt: #f3f4f6;
+    --text: #111827;
+    /* Almost black */
+    --muted: #4b5563;
+    /* Secondary text */
+    --border: #e5e7eb;
+
+    --primary: #374151;
+    /* Graphite */
+    --primary-soft: #e5e7eb;
 
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 20px;
 
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 10px 30px rgba(17, 24, 39, 0.12);
 
-    --hero-gradient: linear-gradient(135deg, #020617, #020617);
+    --hero-gradient: linear-gradient(135deg, #111827, #020617);
+    --accent: #f59e0b;
+    /* Industrial amber */
+    --accent-soft: #fffbeb;
+    /* Light amber background */
+
 }
 
-/* Dark Mode */
+/* =====================
+   DARK MODE (Industrial)
+===================== */
 body.dark {
     --bg: #020617;
     --surface: #020617;
     --surface-alt: #020617;
     --text: #e5e7eb;
-    --muted: #94a3b8;
-    --border: #1e293b;
-    --primary: #60a5fa;
-    --primary-soft: #1e293b;
+    --muted: #9ca3af;
+    --border: #1f2937;
+
+    --primary: #9ca3af;
+    --primary-soft: #1f2937;
+    --accent: #fbbf24;
+    --accent-soft: #451a03;
+
 }
 
 /* =====================
@@ -92,32 +110,24 @@ h3 {
     margin-bottom: 6px;
 }
 
-p {
-    color: var(--muted);
-}
-
-ul {
-    padding-left: 20px;
-}
-
+p,
 li {
-    margin-bottom: 8px;
     color: var(--muted);
 }
 
 /* =====================
-   Header / Hero
+   Hero / Header
 ===================== */
 .hero {
     background: var(--hero-gradient);
-    color: white;
+    color: #f9fafb;
     text-align: center;
     padding: 96px 24px 88px;
     position: relative;
 }
 
 .subtitle {
-    color: #cbd5f5;
+    color: #d1d5db;
     font-weight: 500;
 }
 
@@ -163,7 +173,7 @@ li {
     font-weight: 600;
     border-radius: var(--radius-sm);
     background: var(--primary);
-    color: white;
+    color: #f9fafb;
     text-decoration: none;
     border: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -182,7 +192,7 @@ li {
 
 .btn-outline:hover {
     background: var(--primary);
-    color: white;
+    color: #f9fafb;
 }
 
 /* =====================
@@ -208,7 +218,7 @@ li {
 
 .skills span {
     background: var(--primary-soft);
-    color: var(--primary);
+    color: var(--text);
     padding: 6px 14px;
     border-radius: 999px;
     font-size: 0.85rem;
@@ -289,12 +299,6 @@ li {
     font-size: 0.95rem;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
 /* =====================
    Scroll Animation
 ===================== */
@@ -309,28 +313,8 @@ li {
     transform: translateY(0);
 }
 
-
 /* =====================
-   Footer
-===================== */
-footer {
-    padding: 28px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--muted);
-}
-
-.theme-toggle-float:hover {
-    transform: scale(1.08);
-}
-
-/* Dark mode contrast */
-body.dark .theme-toggle-float {
-    background: var(--surface-alt);
-}
-
-/* =====================
-   Floating Social Stack
+   Floating Social Buttons
 ===================== */
 .floating-social {
     position: fixed;
@@ -355,15 +339,13 @@ body.dark .theme-toggle-float {
     cursor: pointer;
     text-decoration: none;
     box-shadow: var(--shadow-md);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
-/* Hover */
 .social-float:hover {
     transform: scale(1.08);
 }
 
-/* Platform Colors */
 .social-float.whatsapp {
     background: #25d366;
     color: white;
@@ -372,15 +354,10 @@ body.dark .theme-toggle-float {
 .social-float.linkedin {
     background: #0a66c2;
     color: white;
-    font-family: Arial, sans-serif;
 }
 
 .social-float.instagram {
-    background: linear-gradient(45deg,
-            #f58529,
-            #dd2a7b,
-            #8134af,
-            #515bd4);
+    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
     color: white;
 }
 
@@ -389,45 +366,42 @@ body.dark .theme-toggle-float {
     color: var(--text);
 }
 
-/* Dark Mode Contrast */
-body.dark .social-float.theme {
-    background: var(--surface-alt);
+/* =====================
+   Industrial Accent
+===================== */
+
+/* Warning / Callout Box */
+.alert {
+    border-left: 4px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 0.95rem;
 }
+
+/* Inline Highlight */
+.highlight {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Subtle Accent Divider */
+.divider-accent {
+    width: 48px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 12px 0 24px;
+}
+
 
 /* =====================
-   Floating Button Load Animation
+   Footer
 ===================== */
-.floating-social {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.social-float {
-    opacity: 0;
-    transform: translateY(16px) scale(0.9);
-    animation: floatIn 0.5s ease forwards;
-}
-
-/* Staggered delays (bottom → top) */
-.social-float.whatsapp {
-    animation-delay: 0.1s;
-}
-
-.social-float.theme {
-    animation-delay: 0.2s;
-}
-
-.social-float.linkedin {
-    animation-delay: 0.3s;
-}
-
-.social-float.instagram {
-    animation-delay: 0.4s;
-}
-
-@keyframes floatIn {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+footer {
+    padding: 28px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
 }
